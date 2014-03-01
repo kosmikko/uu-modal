@@ -23,7 +23,9 @@
     "gulp": "~3.5",
     "gulp-browserify": "~0.4.6",
     "gulp-stylus": "~0.0.12",
-    "nib": "~1.0.2"
+    "nib": "~1.0.2",
+    "jshint": "~2.4.4",
+    "uu-grid": "0.0.1"
   },
   "scripts": {
     "build": "npm run build-css && npm run build-js",

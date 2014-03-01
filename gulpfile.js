@@ -24,5 +24,6 @@ gulp.task('demo', function() {
 
 gulp.task('watch', function(){
   gulp.watch('src/*.styl', ['stylus']);
-  gulp.watch('src/*.js' , ['js']);
+  gulp.watch('src/*.js' , ['js', 'demo']);
+  gulp.watch('demo/*.js' , ['demo']);
 });

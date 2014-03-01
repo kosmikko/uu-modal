@@ -14,16 +14,22 @@ var removeClass = function(el, className) {
 };
 
 function UUModal(options) {
+  this.options = options;
   this.el = options.el;
   this.visible = false;
   this.closeBtn = this.el.querySelector('.uu-close');
-  this.closeBtn.addEventListener('click', this.hide.bind(this));
   this.handlers = {
-    keyup: this.keyUp.bind(this),
-    click: this.documentClick.bind(this),
-    touchstart: this.documentClick.bind(this),
-    transitionend: this.transitionEnd.bind(this)
-  }
+    close: {
+      click: this.hide.bind(this)
+    },
+    doc: {
+      keyup: this.keyUp.bind(this),
+      click: this.documentClick.bind(this),
+      touchstart: this.documentClick.bind(this),
+      transitionend: this.transitionEnd.bind(this)
+    }
+  };
+  if (this.closeBtn) this.closeBtn.addEventListener('click', this.handlers.close.click);
 }
 
 UUModal.prototype.show = function() {
@@ -36,13 +42,14 @@ UUModal.prototype.hide = function() {
   removeClass(this.el, 'is-active');
   addClass(this.el, 'not-active');
   this.addOrRemoveEventHandlers('remove');
+  if (this.closeBtn) this.closeBtn.removeEventListener('click', this.handlers.close.click);
   this.visible = false;
 };
 
 UUModal.prototype.addOrRemoveEventHandlers = function(action) {
   var fn = action === 'add' ? document.addEventListener : document.removeEventListener;
-  for(var evtType in this.handlers) {
-    var handlerFn = this.handlers[evtType];
+  for(var evtType in this.handlers.doc) {
+    var handlerFn = this.handlers.doc[evtType];
     fn(evtType, handlerFn, false);
   }
 };
@@ -63,8 +70,8 @@ UUModal.prototype.documentClick = function(event) {
 };
 
 UUModal.prototype.transitionEnd = function(event) {
-  this.visible = !this.visible;
-}
+  this.visible = true;
+};
 
 module.exports = UUModal;
 },{}]},{},[1])

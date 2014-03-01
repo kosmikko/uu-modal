@@ -1,3 +1,6 @@
+@import nib
+@require "../node_modules/uu-grid/src/styles/lib/index"
+
 $padding = 25px
 $smallPadding = 15px
 $borderRadius = 3px
@@ -22,13 +25,11 @@ $borderRadius = 3px
   animation-duration(0.25s)
   animation-timing-function(ease)
   animation-fill-mode(both)
-  transition: all 0.25s ease-in-out
+  transition: visibility 0.25s
 
   &.is-active
-    visibility: visible
     animation-name(fadeIn)
   &.not-active
-    visibility: hidden
     animation-name(fadeOut)
 
 .uu-modal
@@ -36,13 +37,22 @@ $borderRadius = 3px
   box-sizing: border-box
   width: 98%
   position: fixed
-  top: 50px
-  left: 1%
+  left: 50%
   z-index: 1
   background-color: #fff
   outline: 9999px solid rgba(0,0,0,0.25)
   box-shadow(0px 0px 25px 10px rgba(0,0,0,0.4))
   border-radius($borderRadius)
+  &.is-active
+    visibility: visible
+  &.not-active
+    visibility: hidden
+
+  &.fit-to-content
+    width: auto
+    width: 650px
+    margin-left: -325px
+    padding: $padding 0
 
 .uu-close
   float: right
@@ -57,6 +67,15 @@ $borderRadius = 3px
 
 .uu-modal-content
   padding: 0 $padding
+  overflow: hidden
 
 .uu-modal-footer
   padding: 0 $padding
+
++media('s')
+  .uu-modal
+    &.fit-to-content
+      width: 98%
+      margin-left: -49%
+
+apply_media_cache()

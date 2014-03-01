@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="uu-modal.css">
+    <link rel="stylesheet" href="demo/demo.css">
     <title>uu-modal</title>
     <script src="demo/build/demo.js" type="text/javascript" charset="utf-8"></script>
   </head>
@@ -11,22 +12,28 @@
     <div class="row index">
       <div class="column">
 
-        <a href="javascript:void(0);" id="open-modal">Open modal</a>
-        <div class="uu-modal animation--fade-in-out" id="test-modal">
-          <div class="uu-modal-header">
-            <span class="uu-close">&times;</span>
-            <h2>
-              Title
-            </h2>
-          </div>
-          <div class="uu-modal-content">
-            <p>Hello world</p>
-          </div>
-          <div class="uu-modal-footer">
-            <p>Footer text</p>
-          </div>
-        </div>
+        <a href="javascript:void(0);" id="open-modal">Open modal</a><br>
+        <a href="javascript:void(0);" id="open-lightbox">Open "lightbox" modal</a>
+      </div>
+    </div>
+    <div class="uu-modal animation--fade-in-out" id="test-modal">
+      <div class="uu-modal-header">
+        <span class="uu-close">&times;</span>
+        <h2>
+          Title
+        </h2>
+      </div>
+      <div class="uu-modal-content">
+        <p>Hello world</p>
+      </div>
+      <div class="uu-modal-footer">
+        <p>Footer text</p>
+      </div>
+    </div>
 
+    <div class="uu-modal animation--fade-in-out fit-to-content" id="lightbox">
+      <div class="uu-modal-content">
+        <img src="http://flickholdr.com/800/600" alt="">
       </div>
     </div>
 
