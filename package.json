@@ -1,0 +1,34 @@
+{
+  "name": "uu-modal",
+  "version": "0.0.1",
+  "description": "minimalistic modal component",
+  "main": "uu-modal.js",
+  "style": "uu-modal.css",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikkolehtinen/uu-modal.git"
+  },
+  "keywords": [
+    "flexbox",
+    "modal",
+    "css"
+  ],
+  "author": "@kosmikko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikkolehtinen/uu-modal/issues"
+  },
+  "homepage": "https://github.com/mikkolehtinen/uu-modal",
+  "devDependencies": {
+    "gulp": "~3.5",
+    "gulp-browserify": "~0.4.6",
+    "gulp-stylus": "~0.0.12",
+    "nib": "~1.0.2"
+  },
+  "scripts": {
+    "build": "npm run build-css && npm run build-js",
+    "build-css": "gulp stylus",
+    "build-js": "gulp js",
+    "watch": "gulp watch"
+  }
+}
