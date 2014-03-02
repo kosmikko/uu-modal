@@ -66,10 +66,10 @@ UUModal.prototype.hide = function() {
 };
 
 UUModal.prototype.addOrRemoveEventHandlers = function(action) {
-  var fn = action === 'add' ? document.addEventListener : document.removeEventListener;
   for(var evtType in this.handlers.doc) {
     var handlerFn = this.handlers.doc[evtType];
-    fn(evtType, handlerFn, false);
+    if (action === 'add') document.addEventListener(evtType, handlerFn, false);
+    else document.removeEventListener(evtType, handlerFn, false);
   }
 };
 
