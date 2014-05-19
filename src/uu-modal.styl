@@ -8,18 +8,16 @@ $borderRadius = 3px
 @keyframes fadeIn
   0%
     opacity: 0
-    transform(translateY(-20px))
+    transform: translate(-50%, -90%)
   100%
     opacity: 1
-    transform(translateY(0))
 
 @keyframes fadeOut
   0%
     opacity: 1
-    transform(translateY(0))
   100%
     opacity: 0
-    transform(translateY(-20px))
+    transform: translate(-50%, -90%)
 
 .animation--fade-in-out
   animation-duration(0.25s)
@@ -35,9 +33,11 @@ $borderRadius = 3px
 .uu-modal
   visibility: hidden
   box-sizing: border-box
-  width: 98%
-  position: fixed
-  left: 1%
+  max-width: 98%
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
   z-index: 1
   background-color: #fff
   outline: 9999px solid rgba(0,0,0,0.25)
@@ -49,11 +49,7 @@ $borderRadius = 3px
     visibility: hidden
 
   &.fit-to-content
-    width: auto
-    width: 650px
-    margin-left: -325px
     padding: $padding 0
-    left: 50%
 
 .uu-close
   float: right
@@ -77,6 +73,13 @@ $borderRadius = 3px
   .uu-modal
     &.fit-to-content
       width: 98%
-      margin-left: -49%
+
++media('m')
+  .uu-modal
+    min-width: 90%
+
++media('l')
+  .uu-modal
+    min-width: 800px
 
 apply_media_cache()
